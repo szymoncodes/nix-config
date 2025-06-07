@@ -25,23 +25,64 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "us";
+    keyMap = "uk";
   };
 
-  # services.xserver.enable = true;
-  # services.displayManager.sddm.enable = true;
-  # services.displayManager.sddm.wayland.enable = true;
-  # programs.hyprland.enable = true;
+  services.libinput = {
+    enable = true;
+    mouse = {
+      accelProfile = "flat";
+    };
+    touchpad = {
+      accelProfile = "flat";
+    };
+  };
+  
+  services.picom = {
+    enable = true;
+    backend = "glx";
+    settings = {
+      scale = 1;
+      corner-radius = 25.0;
+      blur = {
+        method = "dual_kawase";
+        size = 10;
+        # deviation = 5.0;
+      };
+    };
+  };
+  services.xserver = {
+    enable = true;
+    windowManager.qtile.enable = true;
+    dpi = 180;
+    upscaleDefaultCursor = true;
+    xkb.layout = "gb";
+    xkb.model = "macbook";
+    xkb.variant = "mac";
+    displayManager.sessionCommands = ''
+      xwallpaper --zoom ~/Downloads/wallpaper_2.jpg
+    '';
+  };
+  environment.variables = {
+    GDK_SCALE = "2";
+    GDK_DPI_SCALE = "0.5";
+    _JAVA_OPTIONS = "-Dsun.java2d.uiScale=2";
+    QT_AUTO_SCREEN_SCALE_FACTOR = "1";
+    XCURSOR_SIZE = "96";
+    NIXOS_OZONE_WL = "1";
+  };
 
+  virtualisation.vmware.guest.enable = true;
   programs.zsh.enable = true;
+  nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szymon = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" ];
     shell = pkgs.zsh;
     packages = with pkgs; [];
   };
@@ -55,8 +96,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh = {
