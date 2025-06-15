@@ -27,12 +27,14 @@
 
       key-mapping.preset = "qwerty";
 
-      on-window-detected = {
+      on-window-detected = [
+       {
         "if" = {
           app-name-regex-substring = "Finder";
         };
-        run = "layout floating";
-      };
+        run = [ "layout floating" ];
+       }
+      ];
 
       gaps = {
           inner.horizontal = 10;

@@ -14,7 +14,7 @@
     	inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-      url = "github:LnL7/nix-darwin";
+      url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-homebrew = {
@@ -38,11 +38,11 @@
         }
       ];
     };
-    nixosConfigurations.macOS = nixpkgs.lib.nixosSystem {
+    darwinConfigurations."macOS" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
         ./hosts/macOS/darwin.nix
-        home-manager.nixosModules.home-manager
+        home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

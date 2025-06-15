@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }: {
   home.username = "szymon";
-  home.homeDirectory = "/home/szymon";
+  home.homeDirectory = "/Users/szymon";
 
   home.stateVersion = "24.11";
 
@@ -15,7 +15,7 @@
 
   imports = [
     ./../../dotfiles/neovim
-    ./../../dotfiles/ghostty
+    ./../../dotfiles/ghostty/macos.nix
     ./../../dotfiles/shell
     ./../../dotfiles/git
     ./../../dotfiles/aerospace

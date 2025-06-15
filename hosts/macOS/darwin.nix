@@ -1,5 +1,10 @@
 { pkgs, ... }: 
 {
+
+  imports = [
+    ./../../modules/1password/macos.nix
+  ];
+
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
       # CLIs
@@ -25,7 +30,6 @@
       appcleaner 
       google-chrome 
       obsidian 
-      vmware-workstation
       tailscale
 
       # Fonts
@@ -34,7 +38,10 @@
 
   homebrew = {
     enable = true;
-    casks = [];
+    casks = [
+      "ghostty"
+      "vmware-fusion"
+    ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
@@ -69,6 +76,7 @@
   };
 
   system.startup.chime = false;
+  system.primaryUser = "szymon";
 
   nix.enable = false;	
 
