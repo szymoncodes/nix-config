@@ -1,5 +1,5 @@
 {
-  description = "NixOS Flake";
+  description = "Simon's Nix Systems";
 
   inputs = {
     nixpkgs = {
@@ -13,12 +13,16 @@
     	url = "github:nix-community/nixvim";
     	inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, hyprland, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixvim, nix-darwin, nix-homebrew, ... }@inputs: {
     nixosConfigurations.nixOS = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
@@ -31,6 +35,30 @@
           home-manager.sharedModules = [
             nixvim.homeManagerModules.nixvim
           ];
+        }
+      ];
+    };
+    nixosConfigurations.macOS = nixpkgs.lib.nixosSystem {
+      system = "aarch64-darwin";
+      modules = [
+        ./hosts/macOS/darwin.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.szymon = ./hosts/macOS/home.nix;
+          home-manager.sharedModules = [
+            nixvim.homeManagerModules.nixvim
+          ];
+        }
+        nix-homebrew.darwinModules.nix-homebrew
+        {
+          nix-homebrew = {
+            enable = true;
+            enableRosetta = true;
+            user = "szymon";
+            autoMigrate = true;
+          }; 
         }
       ];
     };

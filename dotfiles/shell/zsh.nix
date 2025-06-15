@@ -4,12 +4,6 @@
     initContent = ''
       eval "$(starship init zsh)"
       fastfetch
-      if pgrep -x "sketchybar" >/dev/null 2>&1; then
-        pkill -x sketchybar
-        sketchybar &!
-      else
-       sketchybar &!
-      fi
       ZSH_HIGHLIGHT_STYLES[path]=none
       ZSH_HIGHLIGHT_STYLES[path_prefix]=none
     '';
