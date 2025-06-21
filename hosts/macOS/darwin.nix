@@ -1,10 +1,5 @@
 { pkgs, ... }: 
 {
-
-  imports = [
-    ./../../modules/1password/macos.nix
-  ];
-
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
       # CLIs
@@ -41,6 +36,8 @@
     casks = [
       "ghostty"
       "vmware-fusion"
+      "1password"
+      "1password-cli"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
@@ -50,6 +47,7 @@
   system.defaults = {
     dock.autohide = true;
     dock.wvous-br-corner = 1;
+    dock.expose-group-apps = true;
     dock.mru-spaces = false;
     dock.show-recents = false;
     dock.persistent-apps = [
@@ -76,6 +74,7 @@
   };
 
   system.startup.chime = false;
+
   system.primaryUser = "szymon";
 
   nix.enable = false;	

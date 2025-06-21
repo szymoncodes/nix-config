@@ -20,9 +20,17 @@
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
     };
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, nix-darwin, nix-homebrew, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixvim, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, ... }@inputs: {
     nixosConfigurations.nixOS = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
@@ -57,7 +65,10 @@
             enable = true;
             enableRosetta = true;
             user = "szymon";
-            autoMigrate = true;
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+            };
           }; 
         }
       ];

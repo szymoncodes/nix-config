@@ -46,8 +46,8 @@
       };
 
       mode.main.binding = {
-        alt-slash = "layout tiles horizontal vertical";
-        alt-comma = "layout accordion horizontal vertical";
+        cmd-slash = "layout tiles horizontal vertical";
+        cmd-comma = "layout accordion horizontal vertical";
 
         alt-h = "focus left";
         alt-j = "focus down";
@@ -62,24 +62,24 @@
         alt-minus = "resize smart -50";
         alt-equal = "resize smart +50";
 
-        alt-q = "workspace 1";
-        alt-w = "workspace 2";
-        alt-e = "workspace 3";
-        alt-r = "workspace 4";
-        alt-t = "workspace 5";
+        cmd-1 = "workspace 1";
+        cmd-2 = "workspace 2";
+        cmd-3 = "workspace 3";
+        cmd-4 = "workspace 4";
+        cmd-5 = "workspace 5";
 
-        alt-shift-q = "move-node-to-workspace 1";
-        alt-shift-w = "move-node-to-workspace 2";
-        alt-shift-e = "move-node-to-workspace 3";
-        alt-shift-r = "move-node-to-workspace 4";
-        alt-shift-t = "move-node-to-workspace 5";
+        cmd-shift-1 = "move-node-to-workspace 1";
+        cmd-shift-2 = "move-node-to-workspace 2";
+        cmd-shift-3 = "move-node-to-workspace 3";
+        cmd-shift-4 = "move-node-to-workspace 4";
+        cmd-shift-5 = "move-node-to-workspace 5";
 
-        alt-tab = "workspace-back-and-forth";
+        cmd-tab = "workspace-back-and-forth";
 
         alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
 
-        alt-shift-semicolon = "mode service";
-        alt-shift-f = "mode app";
+        cmd-shift-semicolon = "mode service";
+        cmd-shift-enter = "mode app";
       };
 
       mode.service.binding = {
@@ -102,10 +102,11 @@
       };
 
       mode.app.binding = {
-        alt-t = ["exec-and-forget open -a /Applications/Ghostty.app" "mode main"];
-        alt-b = ["exec-and-forget open -a ${pkgs.google-chrome}/Applications/Google Chrome.app" "mode main"];
-        alt-m = ["exec-and-forget open -a /System/Applications/Music.app" "mode main"];
-        alt-f = ["exec-and-forget open -a /System/Library/CoreServices/Finder.app" "mode main"];
+        esc = ["mode main"];
+        cmd-t = ["exec-and-forget open -a /Applications/Ghostty.app" "mode main"];
+        cmd-b = ["exec-and-forget open -a ${pkgs.google-chrome}/Applications/Google Chrome.app" "mode main"];
+        cmd-m = ["exec-and-forget open -a /System/Applications/Music.app" "mode main"];
+        cmd-f = ["exec-and-forget open -a /System/Library/CoreServices/Finder.app" "mode main"];
       };
     };
   };
