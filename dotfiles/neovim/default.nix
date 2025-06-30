@@ -5,13 +5,24 @@
     dependencies.ripgrep.enable = true;
     enable = true;
     defaultEditor = true;
-    colorschemes.rose-pine = {
+    colorschemes.nord = {
         enable = true;
-	      settings = {
-	        variant = "moon";
-          styles.transparency = true;
-	      };
+       settings = {
+          disable_background = true;
+          bold = false;
+          italic = false;
+          uniform_diff_background = true;
+       };
     };
+    # colorschemes.rose-pine = {
+    #   enable = true;
+    #   settings = {
+    #     variant = "moon";
+    #     styles = {
+    #       transparency = true;
+    #     };
+    #   };
+    # };
     imports = [
 	    ./vim-options.nix
 	    ./keymaps.nix
@@ -20,12 +31,12 @@
       ./plugins/lsp.nix
       ./plugins/lualine.nix
       ./plugins/mini.nix
-      ./plugins/modicator.nix
+      # ./plugins/modicator.nix
       ./plugins/noice.nix
       # ./plugins/obsidian.nix
       ./plugins/oil.nix
       ./plugins/quarto.nix
-      ./plugins/reactive.nix
+      # ./plugins/reactive.nix
       ./plugins/render-markdown.nix
       ./plugins/snacks.nix
       ./plugins/telescope.nix

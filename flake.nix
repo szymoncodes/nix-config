@@ -28,13 +28,18 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixvim, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nixvim, nix-darwin, nix-homebrew, homebrew-core, homebrew-cask, stylix, ... }@inputs: {
     nixosConfigurations.nixOS = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
         ./hosts/nixOS/config.nix
+        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -50,6 +55,7 @@
       system = "aarch64-darwin";
       modules = [
         ./hosts/macOS/darwin.nix
+        stylix.nixosModules.stylix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

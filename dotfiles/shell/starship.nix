@@ -4,15 +4,15 @@
 	enableZshIntegration = true;
 	settings = {
 		format = lib.concatStrings [
-			"[](muted)"
+			"[](nord3)"
 			"$os"
 			"$username"
-			"[](bg:love fg:muted)"
+			"[](bg:nord11 fg:nord3)"
 			"$directory"
-			"[](fg:love bg:foam)"
+			"[](fg:nord11 bg:nord14)"
 			"$git_branch"
 			"$git_status"
-			"[](fg:foam bg:gold)"
+			"[](fg:nord14 bg:nord13)"
 			"$c"
 			"$rust"
 			"$golang"
@@ -22,28 +22,27 @@
 			"$kotlin"
 			"$haskell"
 			"$python"
-			"[](fg:gold bg:pine)"
-			"$docker_context"
-			"[](fg:pine bg:rose)"
+			"[](fg:nord13 bg:nord9)"
+			"[](fg:nord9 bg:nord15)"
 			"$time"
-			"[ ](fg:rose)"
+			"[ ](fg:nord15)"
 			"$line_break$characte"
 		];
-		palette = "rose-pine";
-		palettes.rose-pine = {
-			muted= "#6e6a86";
-			love = "#eb6f92";
-			foam = "#9ccfd8";
-			gold = "#f6c177";
-			pine = "#31748f";
-			rose = "#ebbcba";
-			text = "#e0def4";
-			overlay = "#26233a";
-			red = "#f38ba8";
+		palette = "nord";
+		palettes.nord = {
+			nord3 = "#4c566a";
+			nord11 = "#bf616a";
+			nord14 = "#a3be8c";
+			nord13 = "#ebcb8b";
+			nord9 = "#81a1c1";
+			nord15 = "#b48ead";
+			nord6 = "#eceff4";
+			nord1 = "#3b4252";
+			nord12 = "#d08770";
 		};
 		os = {
 			disabled = false;
-			style = "bg:muted fg:text";
+			style = "bg:nord3 fg:nord6";
 		};
 		os.symbols = {
 			Windows = "󰍲";
@@ -56,7 +55,6 @@
 			Linux = "󰌽";
 			Gentoo = "󰣨";
 			Fedora = "󰣛";
-			Alpine = "";
 			Amazon = "";
 			Android = "";
 			Arch = "󰣇";
@@ -68,12 +66,12 @@
 		};
 		username = {
 			show_always = true;
-			style_user = "bg:muted fg:text";
-			style_root = "bg:muted fg:text";
+			style_user = "bg:nord3 fg:nord6";
+			style_root = "bg:nord3 fg:nord6";
 			format = "[ $user ]($style)";
 		};
 		directory = {
-			style = "fg:overlay bg:love";
+			style = "fg:nord1 bg:nord11";
 			format = "[ $path ]($style)";
 			truncation_length = 3;
 			truncation_symbol = "…/";
@@ -87,80 +85,75 @@
 		};
 		git_branch = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol $branch ](fg:overlay bg:foam)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol $branch ](fg:nord1 bg:nord14)]($style)";
 		};
 		git_status = {
-			style = "bg:gold";
-			format = "[[($all_status$ahead_behind )](fg:overlay bg:foam)]($style)";
+			style = "bg:nord13";
+			format = "[[($all_status$ahead_behind )](fg:nord1 bg:nord14)]($style)";
 		};
 		nodejs = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		c = {
 			symbol = " ";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		rust = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		golang = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		php = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		java = {
 			symbol = " ";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		kotlin = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		haskell = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		python = {
 			symbol = "";
-			style = "bg:gold";
-			format = "[[ $symbol( $version) ](fg:overlay bg:gold)]($style)";
-		};
-		docker_context = {
-			symbol = "";
-			style = "bg:overlay";
-			format = "[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)";
+			style = "bg:nord13";
+			format = "[[ $symbol( $version) ](fg:nord1 bg:nord13)]($style)";
 		};
 		time = {
 			disabled = false;
 			time_format = "%R";
-			style = "bg:love";
-			format = "[[  $time ](fg:overlay bg:rose)]($style)";
+			style = "bg:nord11";
+			format = "[[  $time ](fg:nord1 bg:nord15)]($style)";
 		};
 		line_break = {
 			disabled = false;
 		};
 		character = {
 			disabled = false;
-			success_symbol = "[](bold fg:foam)";
-			error_symbol = "[](bold fg:red)";
+			success_symbol = "[](bold fg:nord14)";
+			error_symbol = "[](bold fg:nord12)";
 			vimcmd_symbol = "[](bold fg:creen)";
-			vimcmd_replace_one_symbol = "[](bold fg:rose)";
-			vimcmd_replace_symbol = "[](bold fg:rose)";
-			vimcmd_visual_symbol = "[](bold fg:rose)";
+			vimcmd_replace_one_symbol = "[](bold fg:nord15)";
+			vimcmd_replace_symbol = "[](bold fg:nord15)";
+			vimcmd_visual_symbol = "[](bold fg:nord15)";
 		};
     };
     };

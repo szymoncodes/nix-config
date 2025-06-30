@@ -17,5 +17,7 @@
 
   imports = [
     ./themes/spotlight.nix
+    ./themes/blur.nix
+    ./themes/nord.nix
   ];
 }

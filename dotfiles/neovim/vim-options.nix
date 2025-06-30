@@ -28,6 +28,18 @@
     undodir = { __raw = "vim.fn.expand('~/.config') .. '/nvim/.undo//'"; };
     undofile = true;
   };
+  highlightOverride = {
+    NormalFloat = {
+      bg = "NONE";
+    };
+    FloatBorder = {
+      bg = "NONE";
+    };
+    Search = {
+      bg = "NONE";
+      fg = "#88c0d0";
+    };
+  };
   autoCmd = [
     {
       event = [ "FileType" ];

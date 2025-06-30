@@ -20,7 +20,7 @@ plugins.alpha = {
 			];
 			opts = {
 				position = "center";
-				hl = "Error";
+				# hl = "Error";
 			};
 		}
 		{

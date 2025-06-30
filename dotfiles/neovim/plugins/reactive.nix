@@ -10,7 +10,7 @@
   })];
   extraConfigLua = ''
     require("reactive").add_preset({
-      name = "rose-pine",
+      name = "nord",
       init = function()
         vim.opt.guicursor:append("a:ReactiveCursor")
       end,
@@ -19,22 +19,22 @@
           -- normal mode configuration
           frozen = true,
           hl = {
-            ReactiveCursor = { bg = "#ea9a97" },
-            CursorLine = { bg = "#56526e" },
+            ReactiveCursor = { bg = "#eceff4" },
+            CursorLine = { bg = "#eceff480" },
           },
         },
         i = {
           -- insert mode configuration
           hl = {
-            ReactiveCursor = { bg = "#9ccfd8" },
-            CursorLine = { bg = "#56526e" },
+            ReactiveCursor = { bg = "#a3be8c" },
+            CursorLine = { bg = "#d8dee9" },
           },
         },
         [{ "v", "V", "\x16" }] = {
           -- visual mode configuration
           hl = {
-            ReactiveCursor = { bg = "#c4a7e7" },
-            Visual = { bg = "#77659C" },
+            ReactiveCursor = { bg = "#88c0d0" },
+            Visual = { bg = "#81a1c1" },
           },
         },
         [{ "no", "nov", "noV", "no\x16" }] = {
@@ -42,22 +42,22 @@
             d = {
               -- delete mode config
               hl = {
-                ReactiveCursor = { bg = "#eb6f92" },
-                CursorLine = { bg = "#8A4A76" },
+                ReactiveCursor = { bg = "#bf616a" },
+                CursorLine = { bg = "#612c31" },
               },
             },
             c = {
               -- change mode config
               hl = {
-                ReactiveCursor = { bg = "#3e8fb0" },
-                CursorLine = { bg = "#56526e" },
+                ReactiveCursor = { bg = "#d08770" },
+                CursorLine = { bg = "#d8dee9" },
               },
             },
             y = {
               -- yank mode config
               hl = {
-                ReactiveCursor = { bg = "#f6c177" },
-                CursorLine = { bg = "#56526e" },
+                ReactiveCursor = { bg = "#ebcb8b" },
+                CursorLine = { bg = "#d8dee9" },
               },
             },
           },
@@ -65,7 +65,7 @@
       },
     })
     require("reactive").setup({
-      load = "rose-pine",
+      load = "nord",
     })
     '';
 }

@@ -5,6 +5,9 @@
     [ 
       ./hardware-configuration.nix
       ./../../modules/1password
+      ./../../modules/picom
+
+      ./../../themes/stylix.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -41,31 +44,30 @@
       accelProfile = "flat";
     };
   };
-  
-  services.picom = {
-    enable = true;
-    backend = "glx";
-    settings = {
-      scale = 1;
-      corner-radius = 25.0;
-      blur = {
-        method = "dual_kawase";
-        size = 10;
-        # deviation = 5.0;
-      };
-    };
-  };
+
   services.xserver = {
     enable = true;
-    windowManager.qtile.enable = true;
+    windowManager.i3.enable = true;
     dpi = 180;
     upscaleDefaultCursor = true;
     xkb.layout = "gb";
     xkb.model = "macbook";
     xkb.variant = "mac";
-    displayManager.sessionCommands = ''
-      xwallpaper --zoom ~/Downloads/wallpaper_2.jpg
-    '';
+  };
+  services.displayManager = {
+    defaultSession = "none+i3";
+  };
+  security.pam.services = {
+    i3lock.enable = true;
+  };
+  services.displayManager.sddm = {
+    enable = true;
+    package = pkgs.kdePackages.sddm;
+    theme = "/run/current-system/sw/share/sddm/themes/where_is_my_sddm_theme";
+    extraPackages = with pkgs; [
+      kdePackages.qtmultimedia
+      kdePackages.qt5compat
+    ];  
   };
   environment.variables = {
     GDK_SCALE = "2";
@@ -80,15 +82,25 @@
   programs.zsh.enable = true;
   nixpkgs.config.allowUnfree = true;
 
+  services.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    audio.enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.szymon = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "audio" ];
     shell = pkgs.zsh;
-    packages = with pkgs; [];
   };
 
-  environment.systemPackages = with pkgs; [];
+  environment.systemPackages = with pkgs; [
+    sddm-astronaut
+    where-is-my-sddm-theme
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -110,6 +122,4 @@
   # networking.firewall.enable = false;
 
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
-

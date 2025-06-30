@@ -18,14 +18,12 @@
       "--force-device-scale-factor=2"
     ];
   };
-  programs.firefox.enable = true;
-
 
   home.packages = with pkgs; [
     open-vm-tools
-    xwallpaper
     nerd-fonts.jetbrains-mono
     montserrat
+    imagemagick
   ];
 
   imports = [
@@ -34,6 +32,11 @@
     ./../../dotfiles/shell
     ./../../dotfiles/git
 
+    ./../../modules/i3
     ./../../modules/rofi
+    ./../../modules/feh
+    ./../../modules/polybar
+
+    ./../../themes/stylix-home.nix
   ];
 }
