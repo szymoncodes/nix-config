@@ -2,33 +2,33 @@
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-      # CLIs
-      duckdb
-      tidy-viewer
-      quarto
-      micromamba
-      fzf
-      bat
-      ripgrep
-      cmatrix
-      cava
-      fftw
-      libtool
-      automake
-      pkgconf
-      portaudio
-      iniparser
+    # CLIs
+    duckdb
+    tidy-viewer
+    quarto
+    micromamba
+    fzf
+    bat
+    ripgrep
+    cmatrix
+    cava
+    fftw
+    libtool
+    automake
+    pkgconf
+    portaudio
+    iniparser
 
-      # GUI Applications      
-      raycast
-      spotify
-      appcleaner 
-      google-chrome 
-      obsidian 
-      tailscale
+    # GUI Applications      
+    raycast
+    spotify
+    appcleaner 
+    obsidian 
+    tailscale
 
-      # Fonts
-      nerd-fonts.jetbrains-mono
+    # Fonts
+    nerd-fonts.jetbrains-mono
+    google-fonts
   ];
 
   homebrew = {
@@ -38,6 +38,8 @@
       "vmware-fusion"
       "1password"
       "1password-cli"
+      "zen"
+      "google-chrome"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
@@ -53,7 +55,7 @@
     dock.persistent-apps = [
       "/Applications/Ghostty.app"
       "${pkgs.obsidian}/Applications/Obsidian.app"
-      "${pkgs.google-chrome}/Applications/Google Chrome.app"
+      "/Applications/Google Chrome.app"
       "${pkgs.spotify}/Applications/Spotify.app"
       "/System/Applications/Music.app"
     ];
