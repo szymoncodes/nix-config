@@ -35,7 +35,6 @@
     enable = true;
     casks = [
       "ghostty"
-      "vmware-fusion"
       "1password"
       "1password-cli"
       "zen"
