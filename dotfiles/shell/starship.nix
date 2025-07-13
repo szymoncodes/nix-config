@@ -26,7 +26,7 @@
 			"[](fg:nord9 bg:nord15)"
 			"$time"
 			"[ ](fg:nord15)"
-			"$line_break$characte"
+			"$line_break$character"
 		];
 		palette = "nord";
 		palettes.nord = {

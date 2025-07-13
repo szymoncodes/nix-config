@@ -12,6 +12,7 @@
           bold = false;
           italic = false;
           uniform_diff_background = true;
+          underline = false;
        };
     };
     # colorschemes.rose-pine = {
