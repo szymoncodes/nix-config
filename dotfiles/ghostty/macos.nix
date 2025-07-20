@@ -1,6 +1,6 @@
 { self, config, pkgs, ... }: {
   xdg.configFile."ghostty/config".text = ''
-    theme = rose-pine-moon
+    theme = nord
     background-opacity = 0.75
     background-blur-radius = 40
     macos-titlebar-style = hidden

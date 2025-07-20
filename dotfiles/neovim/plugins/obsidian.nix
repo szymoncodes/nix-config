@@ -4,8 +4,8 @@
     settings = {
       workspaces = [
         {
-          name = "Personal";
-          path = "~/Obsidian/Personal";
+          name = "Notes";
+          path = "~/Documents/Notes";
         }
       ];
       disable_frontmatter = true;

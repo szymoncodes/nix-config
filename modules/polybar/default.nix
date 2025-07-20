@@ -1,7 +1,7 @@
-{ self, ... }: {
+{ self, pkgs, ... }: {
   services.polybar = {
     enable = true;
-    script = "if type 'xrandr'; then \nfor m in $(xrandr --query | grep ' connected' | cut -d' ' -f1); do \nMONITOR=$m polybar --reload toph & \ndone \nelse \npolybar --reload toph & \nfi\n";
+    script = "PATH=$PATH:${pkgs.i3}/bin polybar bar &";
   };
-  home.file."/.config/polybar/config.ini" = { source = ./config.ini; };
+  home.file."/polybar-collection" = { source = ./config; recursive = true; };
 }

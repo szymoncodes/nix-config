@@ -8,7 +8,7 @@
     font pango:Jet Brains Mono 10
 
     exec --no-startup-id picom 
-    exec --no-startup-id polybar
+    exec_always --no-startup-id $HOME/polybar-collection/launch.sh    
     exec --no-startup-id dex --autostart --environment i3
     exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
     exec --no-startup-id nm-applet

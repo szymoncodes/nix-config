@@ -32,12 +32,10 @@
       ./plugins/lsp.nix
       ./plugins/lualine.nix
       ./plugins/mini.nix
-      # ./plugins/modicator.nix
       ./plugins/noice.nix
-      # ./plugins/obsidian.nix
+      ./plugins/obsidian.nix
       ./plugins/oil.nix
       ./plugins/quarto.nix
-      # ./plugins/reactive.nix
       ./plugins/render-markdown.nix
       ./plugins/snacks.nix
       ./plugins/telescope.nix
