@@ -55,7 +55,7 @@
       system = "aarch64-darwin";
       modules = [
         ./hosts/macOS/darwin.nix
-        stylix.nixosModules.stylix
+        stylix.darwinModules.stylix
         home-manager.darwinModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
