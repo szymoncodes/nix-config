@@ -3,10 +3,8 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # CLIs
-    duckdb
-    tidy-viewer
     quarto
-    micromamba
+    devenv
     fzf
     bat
     ripgrep
@@ -29,6 +27,7 @@
     # Fonts
     nerd-fonts.jetbrains-mono
     google-fonts
+    merriweather
   ];
 
   homebrew = {
@@ -39,6 +38,8 @@
       "1password-cli"
       "zen"
       "google-chrome"
+      "affinity-photo"
+      "affinity-designer"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
@@ -81,6 +82,9 @@
   nix.enable = false;	
 
   nix.settings.experimental-features = "nix-command flakes";
+  
+  nix.settings.trusted-users = [ "root" "@admin" "szymon"];
+  
   programs.zsh.enable = true;
 
   system.stateVersion = 4;
