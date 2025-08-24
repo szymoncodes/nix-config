@@ -51,6 +51,22 @@
         }
       ];
     };
+    nixosConfigurations.DevEnv = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./hosts/DevEnv/config.nix
+        stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.szymon = ./hosts/DevEnv/home.nix;
+          home-manager.sharedModules = [
+            nixvim.homeManagerModules.nixvim
+          ];
+        }
+      ];
+    };
     darwinConfigurations."macOS" = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       modules = [
