@@ -28,13 +28,14 @@
       key-mapping.preset = "qwerty";
 
       on-window-detected = [
-       {
-        "if" = {
-          app-name-regex-substring = "Finder";
-        };
-        run = [ "layout floating" ];
-       }
+        {
+          "if" = {
+            app-name-regex-substring = "Finder";
+          };
+          run = [ "layout floating" ];
+        }
       ];
+
 
       gaps = {
           inner.horizontal = 10;
@@ -73,6 +74,9 @@
         cmd-shift-3 = "move-node-to-workspace 3";
         cmd-shift-4 = "move-node-to-workspace 4";
         cmd-shift-5 = "move-node-to-workspace 5";
+
+        cmd-alt-h = "focus-monitor prev";
+        cmd-alt-l = "focus-monitor next";
 
         cmd-tab = "workspace-back-and-forth";
 
