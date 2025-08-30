@@ -15,11 +15,9 @@
   home.packages = with pkgs; [
     open-vm-tools
     nerd-fonts.jetbrains-mono
-    material-icons
-    montserrat
-    imagemagick
-    psmisc
-    python314
+    fzf
+    devenv
+    blesh
   ];
 
   imports = [

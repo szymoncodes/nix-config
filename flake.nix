@@ -55,7 +55,6 @@
       system = "aarch64-linux";
       modules = [
         ./hosts/DevEnv/config.nix
-        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

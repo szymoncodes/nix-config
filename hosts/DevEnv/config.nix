@@ -21,17 +21,6 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   i18n.defaultLocale = "en_GB.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "uk";
-  };
-
-  services.xserver = {
-    enable = true;
-    xkb.layout = "gb";
-    xkb.model = "macbook";
-    xkb.variant = "mac";
-  };
 
   virtualisation.vmware.guest.enable = true;
   programs.zsh.enable = true;
@@ -42,6 +31,8 @@
     extraGroups = [ "networkmanager" "wheel" "audio" ];
     shell = pkgs.zsh;
   };
+
+  nix.settings.trusted-users = [ "root" "@admin" "szymon"];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
