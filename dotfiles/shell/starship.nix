@@ -44,6 +44,26 @@
         disabled = false;
         style = "bg:nord3 fg:nord6";
       };
+      os.symbols = {
+        Windows = "󰍲";
+        Ubuntu = "󰕈";
+        SUSE = "";
+        Raspbian = "󰐿";
+        Mint = "󰣭";
+        Macos = "󰀵";
+        Manjaro = "";
+        Linux = "󰌽";
+        Gentoo = "󰣨";
+        Fedora = "󰣛";
+        Amazon = "";
+        Android = "";
+        Arch = "󰣇";
+        Artix = "󰣇";
+        CentOS = "";
+        Debian = "󰣚";
+        Redhat = "󱄛";
+        RedHatEnterprise = "󱄛";
+      };
 
       username = {
         show_always = true;
