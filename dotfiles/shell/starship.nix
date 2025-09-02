@@ -4,6 +4,7 @@
     enableZshIntegration = true;
     settings = {
       format = lib.concatStrings [
+        "[](nord3)"
         "$os"
         "$username"
         "[](bg:nord11 fg:nord3)"
