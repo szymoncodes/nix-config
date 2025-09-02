@@ -1,9 +1,9 @@
 { pkgs, ... }: {
   programs.fd.enable = true;
   programs.nixvim = {
+    enable = true;
     dependencies.gcc.enable = true;
     dependencies.ripgrep.enable = true;
-    enable = true;
     defaultEditor = true;
     colorschemes.nord = {
         enable = true;
@@ -15,15 +15,6 @@
           underline = false;
        };
     };
-    # colorschemes.rose-pine = {
-    #   enable = true;
-    #   settings = {
-    #     variant = "moon";
-    #     styles = {
-    #       transparency = true;
-    #     };
-    #   };
-    # };
     imports = [
 	    ./vim-options.nix
 	    ./keymaps.nix
