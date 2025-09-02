@@ -2,8 +2,6 @@
   programs.tmux = {
     enable = true;
     mouse = true;
-    baseIndex = 1;
-    shortcut = "a";
     extraConfig = ''
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
@@ -21,14 +19,8 @@
 
       bind r source-file ~/.config/tmux/tmux.conf
       
-      bind g source-file ~/.config/tmux/scripts/open-github.sh
+      bind g run-shell ~/.config/tmux/scripts/open-github.sh
     '';
   };
-  home.file.".config/tmux/scripts/open-github.sh".text = ''
-    #! /etc/profiles/per-user/szymon/bin/bash
-    cd $(tmux run "echo #{pane_start_path}") 
-    url=$(git remote get-url origin)
-
-    open $url || echo "No remote found"
-    '';
+  home.file.".config/scripts/open-github.sh".source = ./scripts/open-github.sh;
 }  
