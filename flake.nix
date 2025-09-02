@@ -53,7 +53,7 @@
           home-manager.useUserPackages = true;
           home-manager.users.szymon = ./hosts/DevEnv/home.nix;
           home-manager.sharedModules = [
-            nixvim.homeManagerModules.nixvim
+            nixvim.homeModules.nixvim
           ];
         }
       ];

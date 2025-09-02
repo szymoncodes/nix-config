@@ -5,42 +5,30 @@
     baseIndex = 1;
     shortcut = "a";
     extraConfig = ''
-      # Refreshing the config
-      unbind r
-      bind r source-file ~/.config/tmux/tmux.conf
-
       set -g default-terminal "tmux-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
-      set-option -g status-position top
 
-      set -g default-command /bin/zsh
-      set -g default-shell /bin/zsh
+      set -g prefix C-SPACE
+      set -g base-index 1
+      set -g renumber-windows on
+      set -g mode-keys vi
+      set -g status-position top
+      set -g status-justify absolute-centre
+      set -g status-style "bg=default"
+      set -g window-status-current-style "fg=#a3be8c bold"
+      set -g status-right ""
+      set -g status-left "$S"
 
-      bind-key h select-pane -L
-      bind-key j select-pane -D
-      bind-key k select-pane -U
-      bind-key l select-pane -R
-
-      bind-key -r h resize-pane -L 5
-      bind-key -r j resize-pane -D 5
-      bind-key -r k resize-pane -U 5
-      bind-key -r l resize-pane -R 5
+      bind r source-file ~/.config/tmux/tmux.conf
+      
+      bind g source-file ~/.config/tmux/scripts/open-github.sh
     '';
-    plugins = with pkgs; [
-      tmuxPlugins.sensible
-      tmuxPlugins.vim-tmux-navigator
-      {
-        plugin = tmuxPlugins.rose-pine;
-        extraConfig = ''
-          set -g @rose_pine_variant 'moon'
-          set -g @rose_pine_bar_bg_disable 'on' 
-          set -g @rose_pine_bar_bg_disabled_color_option 'default'
-          set -g @rose_pine_show_pane_directory 'on'
-
-          set -g status-bg colour235
-          set -g status-fg colour223
-        '';
-      }
-    ];
   };
+  home.file.".config/tmux/scripts/open-github.sh".text = ''
+    #! /etc/profiles/per-user/szymon/bin/bash
+    cd $(tmux run "echo #{pane_start_path}") 
+    url=$(git remote get-url origin)
+
+    open $url || echo "No remote found"
+    '';
 }  
