@@ -9,6 +9,7 @@
           font-family = "JetBrains Mono";
           font-size = 11;
           window-decoration = "none";
+          shell-integration-features = "sudo";
         };
     };
 }
