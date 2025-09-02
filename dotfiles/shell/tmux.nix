@@ -30,11 +30,15 @@
       tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
       {
-        plugin = tmuxPlugins.catppuccin;
+        plugin = tmuxPlugins.rose-pine;
         extraConfig = ''
-          set -g @catppuccin_flavor "mocha"
-          set -g @catppuccin_window_style "rounded"
-          set -g @catppuccin_status_background "none"
+          set -g @rose_pine_variant 'moon'
+          set -g @rose_pine_bar_bg_disable 'on' 
+          set -g @rose_pine_bar_bg_disabled_color_option 'default'
+          set -g @rose_pine_show_pane_directory 'on'
+
+          set -g status-bg colour235
+          set -g status-fg colour223
         '';
       }
     ];
