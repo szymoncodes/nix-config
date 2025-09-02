@@ -4,6 +4,7 @@
     enableZshIntegration = true;
     settings = {
       format = lib.concatStrings [
+        "[](nord3)"
         "$os"
         "$username"
         "[](bg:nord11 fg:nord3)"
@@ -43,6 +44,26 @@
       os = {
         disabled = false;
         style = "bg:nord3 fg:nord6";
+      };
+      os.symbols = {
+        Windows = "󰍲";
+        Ubuntu = "󰕈";
+        SUSE = "";
+        Raspbian = "󰐿";
+        Mint = "󰣭";
+        Macos = "󰀵";
+        Manjaro = "";
+        Linux = "󰌽";
+        Gentoo = "󰣨";
+        Fedora = "󰣛";
+        Amazon = "";
+        Android = "";
+        Arch = "󰣇";
+        Artix = "󰣇";
+        CentOS = "";
+        Debian = "󰣚";
+        Redhat = "󱄛";
+        RedHatEnterprise = "󱄛";
       };
 
       username = {
