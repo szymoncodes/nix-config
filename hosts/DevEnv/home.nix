@@ -22,7 +22,7 @@
 
   imports = [
     ./../../dotfiles/neovim
-    # ./../../dotfiles/ghostty
+    ./../../dotfiles/ghostty
     ./../../dotfiles/shell
     ./../../dotfiles/git
   ];
