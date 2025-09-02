@@ -19,7 +19,7 @@
 
       bind r source-file ~/.config/tmux/tmux.conf
       
-      bind g run-shell ~/.config/tmux/scripts/open-github.sh
+      bind g run-shell ~/.config/scripts/open-github.sh
     '';
   };
   home.file.".config/scripts/open-github.sh".source = ./scripts/open-github.sh;
