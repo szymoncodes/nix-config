@@ -1,5 +1,8 @@
 { pkgs, ... }: 
 {
+  imports = [
+    ./../../modules/tailscale
+  ];
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # CLIs
