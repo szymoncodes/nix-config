@@ -43,6 +43,7 @@
       "google-chrome"
       "affinity-photo"
       "affinity-designer"
+      "ollama"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;

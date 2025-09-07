@@ -20,7 +20,5 @@
     ./../../dotfiles/git
     ./../../dotfiles/aerospace
     ./../../dotfiles/jankyborders
-
-    ./../../modules/ollama
   ];
 }
