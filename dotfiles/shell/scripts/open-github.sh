@@ -1,7 +1,14 @@
-#!/usr/bin/env bash
-cd $(tmux run "echo #{pane_start_path}")
-url=$(git remote get-url origin)
+#!/bin/bash
+dir="${1:-$PWD}"
+cd "$dir" || exit 1
 
-https_url=$(echo $url | sed -E 's#git@([^:]+):#https://\1/#')
-
-open $https_url | "Couldn't find a git repo"
+# Check if it's a git repo
+if git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    url=$(git -C "$dir" remote get-url origin 2>/dev/null)
+    if [[ $url =~ git@github.com:(.*).git ]]; then
+        https_url="https://github.com/${BASH_REMATCH[1]}"
+        open "$https_url"
+    fi
+else
+    echo "Not a git repo."
+fi

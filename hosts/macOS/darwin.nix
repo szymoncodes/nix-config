@@ -19,6 +19,7 @@
     pkgconf
     portaudio
     iniparser
+    skim
 
     # GUI Applications      
     raycast
@@ -43,7 +44,7 @@
       "google-chrome"
       "affinity-photo"
       "affinity-designer"
-      "ollama"
+      "jan"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
