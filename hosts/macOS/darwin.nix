@@ -44,6 +44,7 @@
       "affinity-photo"
       "affinity-designer"
       "ollama"
+      "jan"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
